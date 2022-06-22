@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<style>
+    table{
+        border: 1px solid black;
+        position: absolute;
+        margin-top: 2rem;
+    }
+    th, td {border: 1px solid black;
+        padding-right: 2rem;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="game.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Juego de Picas y Famas Nicolas Piñeros</h1>
+    <form>
+        <label for="inputNumber">Escriba el numero: </label>
+        <input type="text" id="inputNumber" name="inputNumber" minlength="4" maxlength="4" required>
+        <input type="button" value="Probar" onclick="Game.tryNumber($('#inputNumber').val())">
+        <table>
+            <tr>
+                <th>Intento N°</th>
+                <th>Numero Ingresado</th>
+                <th>Picas y Famas</th>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
