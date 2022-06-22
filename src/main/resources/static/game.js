@@ -1,9 +1,5 @@
 Game = (function (){
     var _count = 0;
-    var _nPicas = 0;
-    var _nFamas = 0;
-    var _number = ['9','8','7','6'];
-    var _input = [];
 
     return {
 
@@ -13,7 +9,17 @@ Game = (function (){
                 method: 'GET'
             })
                 .then(response => response.text())
-                .then(res => $("table").append($('<tr><td>' + _count + '</td><td>' + ntry + '</td><td>' + res + '</td>')));
+                .then(res => {
+                    console.log(res);
+                    console.log(res === "ErrorAttempts");
+                    console.log("ingreso");
+                    if(res == "ErrorAttempts"){
+                        alert("Numero de intentos completado")
+                    }else {
+                        $("table").append($('<tr><td>' + _count + '</td><td>' + ntry + '</td><td>' + res + '</td>'));
+                    }
+                });
+            _count++;
         }
     }
 })();
