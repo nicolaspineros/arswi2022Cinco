@@ -5,12 +5,22 @@ import java.util.Arrays;
 
 public class GameService {
     private ArrayList<String> solution = new ArrayList<>(Arrays.asList("9","8","7","6"));
-    int attempts = 6;
-    int famas,picas;
+
+    int famas;
+    int picas;
+    static int attempts;
 
     String result;
     private ArrayList<String> input;
+    private static GameService gameService;
     public GameService(){
+    }
+
+    public static GameService getGame() {
+        if (gameService == null){
+            gameService = new GameService();
+        }
+        return gameService;
     }
 
     public String tryNum(String inputN){
@@ -47,5 +57,10 @@ public class GameService {
             return true;
         }
         return false;
+    }
+
+    public void setAttempts(int count) {
+        System.out.println(count);
+        attempts = count;
     }
 }

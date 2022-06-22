@@ -1,7 +1,15 @@
 Game = (function (){
-    var _count = 0;
+    let _count;
 
     return {
+        init: function () {
+            _count = 0;
+            fetch('/count', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: 6
+            }).then(r => console.log("Count add"+r))
+         },
 
         tryNumber: function (ntry) {
             var url = '/game?input=' + ntry;
@@ -10,12 +18,11 @@ Game = (function (){
             })
                 .then(response => response.text())
                 .then(res => {
-                    console.log(res);
-                    console.log(res === "ErrorAttempts");
-                    console.log("ingreso");
                     if(res == "ErrorAttempts"){
                         alert("Numero de intentos completado")
-                    }else {
+                    } else if (res == "Este es el numero correcto!"){
+                        alert("Ganador")
+                    } else {
                         $("table").append($('<tr><td>' + _count + '</td><td>' + ntry + '</td><td>' + res + '</td>'));
                     }
                 });
